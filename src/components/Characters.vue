@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="character in characters.data" :key="character.id">
-        <img :src="character.image" alt="">
-        <p class="text-4xl">{{ character.name }} - {{ character.species }} - {{ character.status }} - {{ character.gender }}</p>
+  <div class="flex justify-center w-10/12">
+    <ul class=" w-full grid grid-cols-4 gap-4" >
+      <li class=" bg-slate-800 rounded-lg  flex flex-col items-center  w-full " v-for="character in characters.data" :key="character.id">
+        <img class="rounded-full w-40 my-4 " :src="character.image" alt="">
+        <h3 class=" text-white text-base font-bold pb-2.5 ">{{ character.name }}</h3>
+        <div class="flex flex-row w-4/12 justify-center pb-4">
+          <p class="text-cyan-300 py-0.5 p-2 bg-type rounded text-xs">{{ character.species }}</p>
+          <p class="text-cyan-300 mx-1 py-0.5 bg-type p-2 bg-slate-50 rounded text-xs" >{{ character.status }}</p>
+          <p class="text-cyan-300 py-0.5 p-2 bg-type bg-slate-50 rounded text-xs">{{ character.gender }}</p>
+        </div>
       </li>
     </ul>
     <div v-if="loading.value">Loading...</div>
