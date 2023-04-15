@@ -1,0 +1,24 @@
+{
+  "name": "test-final",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.12",
+    "@vue/apollo-composable": "^4.0.0-beta.4",
+    "graphql": "^16.6.0",
+    "react": "^18.2.0",
+    "vue": "^3.0.4",
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1",
+    "vite": "^1.0.0-rc.13"
+  }
+}
