@@ -4,23 +4,35 @@
       <img class="w-6/12 " src="./assets/logo_RickAndMorty.png" alt="">
     </div>
     <div class="w-10/12">
-      <h1 class="font-bold text-2xl" >Characters</h1>
+      <h1 class="font-bold text-4xl text-white " >Characters</h1>
     </div>
-    
-    <div class="">
-
-    </div>
-    <Characters/>
+    <Modal @update-filter="updateFilter" />
+<Characters :filters="filters" />
     
   </div>
 </template>
 
 <script>
-import Characters from './components/Characters.vue'
-
+import Characters from "./components/Characters.vue";
+import Modal from "./components/Modal.vue";
 export default {
   components: {
-    Characters
+    Characters,
+    Modal,
+  },
+  data() {
+    return {
+      filters: {
+        gender: null,
+        status: null,
+        species: null,
+      },
+    };
+  },
+  methods: {
+    updateFilter({ type, value }) {
+      this.filters[type] = value === "all" ? null : value;
     },
-}
+  },
+};
 </script>

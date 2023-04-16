@@ -16,39 +16,57 @@
 </template>
 
 <script>
-import { reactive, onMounted, ref } from 'vue'
-import { GET_CHARACTERS } from '../graphql/query.js'
-import client from '../graphql/client.js'
+import { watch, reactive, onMounted, ref } from "vue";
+import { GET_CHARACTERS } from "../graphql/query.js";
+import client from "../graphql/client.js";
 
 export default {
-  name:'character',
-  setup() {
+  name: "character",
+  props: {
+    filters: Object,
+  },
+  setup(props) {
     const characters = reactive({
-      data: []
-    })
+      data: [],
+    });
 
-    const loading = ref(true)
-    const error = ref(null)
+    const loading = ref(true);
+    const error = ref(null);
 
-    onMounted(async () => {
+    const fetchCharacters = async () => {
+      loading.value = true;
       try {
         const { data } = await client.query({
-          query: GET_CHARACTERS
-        })
-        console.log(data)
-        characters.data = data.characters.results
+          query: GET_CHARACTERS,
+          variables: {
+            gender: props.filters.gender,
+            species: props.filters.species,
+            status: props.filters.status,
+          },
+        });
+        characters.data = data.characters.results;
       } catch (e) {
-        error.value = e.message
+        error.value = e.message;
       } finally {
-        loading.value = false
+        loading.value = false;
       }
-    })
+    };
+
+    onMounted(fetchCharacters);
+
+    watch(
+      () => props.filters,
+      () => {
+        fetchCharacters();
+      },
+      { deep: true }
+    );
 
     return {
-      characters: characters,
+      characters,
       loading,
-      error
-    }
-  }
-}
+      error,
+    };
+  },
+};
 </script>
