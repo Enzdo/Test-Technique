@@ -5,9 +5,9 @@
         <img class="rounded-full w-40 my-4 " :src="character.image" alt="">
         <h3 class=" text-white text-base font-bold pb-2.5 ">{{ character.name }}</h3>
         <div class="flex flex-row w-4/12 justify-center pb-4">
-          <p class="text-cyan-300 py-0.5 p-2 bg-type rounded text-xs">{{ character.status }}</p>
+          <p class="text-cyan-300 py-0.5 p-2 bg-type rounded text-xs">{{ character.gender }}</p>
           <p class="text-cyan-300 mx-1 py-0.5 bg-type p-2 bg-slate-50 rounded text-xs" >{{ character.species }}</p>
-          <p class="text-cyan-300 py-0.5 p-2 bg-type bg-slate-50 rounded text-xs">{{ character.gender }}</p>
+          <p class="text-cyan-300 py-0.5 p-2 bg-type bg-slate-50 rounded text-xs">{{ character.status }}</p>
         </div>
       </li>
     </ul>
