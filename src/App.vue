@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style>
-
+input.bg-color-change:checked ~ label {
+  background-color: blue;
+  border-color: blue;
+}
 
 </style>

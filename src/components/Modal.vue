@@ -4,78 +4,270 @@
             <div class="w-6/12 pr-3">
                 <h3 class="text-lg text-white font-medium pb-3" >Gender</h3>
                 <div class=" flex flex-col items-start	">
-                    <label for="all-1" :class="[
-      'border-2',
-      'rounded',
-      'w-full',
-      'text-white',
-      'text-sm',
-      'flex',
-      'items-start',
-      'px-4',
-      'py-4',
-      'my-2',
-      'flex',
-      'items-center',
-      'justify-between',
-      'radio-container',
-      isSelected ? 'bg-blue-500 border-blue-500' : 'bg-none border-black'
-    ]"
-    @click="toggleSelected">
-                        <div class="">
-                            <h3>All</h3>
-                        </div>
-                            <input :class="[
-        isSelected ? 'bg-blue-500 border-blue-500' : 'bg-none border-black'
-      ]" type="radio" name="gender" id='all-1' value="all" @change="updateFilter('gender', 'all')">
-                    </label>
-                    <label for="Male" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between focus:border-sky-500" >
+                    <div
+                            for="all-1"
+                            :class="[
+                                'border-2',
+                                'rounded',
+                                'w-full',
+                                'text-white',
+                                'text-sm',
+                                'flex',
+                                'items-start',
+                                'px-4',
+                                'py-4',
+                                'my-2',
+                                'flex',
+                                'items-center',
+                                'justify-between',
+                                'radio-container',
+                                isActive('gender', 'all') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                            ]"
+                            @click="updateFilter('gender', 'all')"
+                            >
                             <div class="">
-                                <h3>Male</h3>
+                                <h3> <font-awesome-icon icon="fa-solid fa-genderless" ></font-awesome-icon> All</h3>
                             </div>
-                        <input type="radio" class="focus:bg-cyan-800" id="Male" name="gender" value="male" @change="updateFilter('gender', 'male')">
-                    </label>
-                    <label for="Female" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
+                        <label for="all-1" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('gender', 'all') ? 'bg-white border-cyan-500 border-6' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </div>
+                    <label for="Male" :class="[
+                        'border-2',
+                                'rounded',
+                                'w-full',
+                                'text-white',
+                                'text-sm',
+                                'flex',
+                                'items-start',
+                                'px-4',
+                                'py-4',
+                                'my-2',
+                                'flex',
+                                'items-center',
+                                'justify-between',
+                                'radio-container',
+                                isActive('gender', 'male') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                            ]"
+                            @click="updateFilter('gender', 'male')"
+                            > 
                             <div class="">
-                                <h3>Female</h3>
+                                <h3> <font-awesome-icon :icon="['fas', 'mars']" ></font-awesome-icon> Male</h3>
                             </div>
-                        <input type="radio" name="gender" id="Female" value="female" @change="updateFilter('gender', 'female')" >
+                            <label for="Male" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('gender', 'male') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
                     </label>
-                    <label for="unknown-1" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
+                    <label for="Female" :class="[
+                        'border-2',
+                                'rounded',
+                                'w-full',
+                                'text-white',
+                                'text-sm',
+                                'flex',
+                                'items-start',
+                                'px-4',
+                                'py-4',
+                                'my-2',
+                                'flex',
+                                'items-center',
+                                'justify-between',
+                                'radio-container',
+                                isActive('gender', 'female') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                            ]"
+                            @click="updateFilter('gender', 'female')"
+                            > 
                             <div class="">
-                                <h3>Unknown</h3>
+                                <h3> <font-awesome-icon :icon="['fas', 'venus']" /> Female</h3>
                             </div>
-                        <input type="radio" name="gender" id="unknown-1" value="unknown" @change="updateFilter('gender', 'unknown')" >
+                            <label for="female" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('gender', 'female') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>
+                    <label for="unknown-1" :class="[
+                        'border-2',
+                                'rounded',
+                                'w-full',
+                                'text-white',
+                                'text-sm',
+                                'flex',
+                                'items-start',
+                                'px-4',
+                                'py-4',
+                                'my-2',
+                                'flex',
+                                'items-center',
+                                'justify-between',
+                                'radio-container',
+                                isActive('gender', 'unknown') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                            ]"
+                            @click="updateFilter('gender', 'unknown')"
+                            > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'transgender']" /> Unknown</h3>
+                            </div>
+                            <label for="unknown-1" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('gender', 'unknown') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
                     </label>
                 </div>
             </div>
             <div class="w-6/12 pl-3">
                     <h3 class="text-lg text-white font-medium pb-3" >Status</h3>
                     <div class="flex flex-col items-start">
-                        <label for="all-2" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
+                        <label for="all-2" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('status', 'all') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('status', 'all')"
+                                > 
                             <div class="">
-                                <h3>All</h3>
+                                <h3> <font-awesome-icon icon="fa-solid fa-face-meh-blank" style="color: #ffffff;" ></font-awesome-icon> All</h3>
                             </div>
-                                <input type="radio" id="all-2" name="status" value="all" @change="updateFilter('status', 'all')" >
-                            </label>
-                            <label for="alive" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Alive</h3>
-                                    </div>
-                                <input type="radio" name="status" id='alive' value="alive" @change="updateFilter('status', 'alive')" >
-                            </label>
-                            <label for="dead" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Dead</h3>
-                                    </div>
-                                <input type="radio" name="status" id="dead" value="dead" @change="updateFilter('status', 'dead')" >
-                            </label>
-                                <label for="unknown-2" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                        <div class="">
-                                            <h3>Unknown</h3>
-                                        </div>
-                                    <input type="radio" name="status" id="unknown-2" value="unknown" @change="updateFilter('status', 'unknown')" >
-                                </label>           
+                            <label for="all-2" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('status', 'all') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>
+                    
+                    <label for="alive" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('status', 'alive') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('status', 'alive')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon icon="fa-solid fa-face-smile" style="color: #ffffff;" ></font-awesome-icon> Alive</h3>
+                            </div>
+                            <label for="alive" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('status', 'alive') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>
+                    <label for="dead" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('status', 'dead') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('status', 'dead')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'face-dizzy']" style="color: #ffffff;" ></font-awesome-icon> Dead</h3>
+                            </div>
+                            <label for="dead" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('status', 'dead') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>
+                    <label for="Unknown-2" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('status', 'unknown') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('status', 'unknown')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'face-meh']" ></font-awesome-icon> Unknown</h3>
+                            </div>
+                            <label for="Unknown-2" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('status', 'unknown') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>          
                     </div>
             </div>
         </div>
@@ -84,69 +276,329 @@
             <h3 class="text-lg text-white font-medium pb-3" >Species</h3>
             <div class="flex flex-row w-full justify-between max-lg:flex max-lg:flex-col">
                 <div class=" w-6/12 pr-3 max-lg:pr-0 w-full">
-                    <label for="all-3" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between max-lg:mx-none" >
-                                    <div class="">
-                                        <h3>All</h3>
-                                    </div>
-                                <input type="radio" name="Species" id="all-3" value="all" @change="updateFilter('species', 'all')" > 
-                            </label>
-                            <label for="alien" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between " >
-                                    <div class="">
-                                        <h3>Alien</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="alien" value="alien" @change="updateFilter('species', 'alien')" > 
-                            </label>
-                            <label for="Myth" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Myth Creature</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id='Myth' value="mythological" @change="updateFilter('species', 'mythological')" > 
-                            </label>
-                            <label for="Humanoid" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Humanoid</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="Humanoid" value="mythological" @change="updateFilter('species', 'humanoid')" > 
-                            </label>
-                            <label for="Animal" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Animal</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="Animal" value="mythological" @change="updateFilter('species', 'animal')" > 
-                            </label>
+                    <label for="all-3" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'all') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'all')"
+                                > 
+                            <div class="flex flex-row">
+                                <h3> <font-awesome-icon :icon="['fas', 'users']" /> All</h3>
+                            </div>
+                            <label for="all-3" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'all') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>   
+                    <label for="alien" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'alien') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'alien')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'user-astronaut']" /> Alien</h3>
+                            </div>
+                            <label for="alien" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'alien') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>
+                    <label for="Myth" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'mythological') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'mythological')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'dragon']" /> Myth Creature</h3>
+                            </div>
+                            <label for="Myth" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'mythological') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label> 
+                    
+                    <label for="Humanoid" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'humanoid') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'humanoid')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'person-walking']" /> Humanoid</h3>
+                            </div>
+                            <label for="Humanoid" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'humanoid') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label> 
+                    <label for="animal" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'animal') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'animal')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'dog']" /> Animal</h3>
+                            </div>
+                            <label for="animal" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'animal') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label> 
                 </div>
                 <div class="w-6/12 max-lg:pl-0 w-full">
-                    <label for="Human" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Human</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="Human" value="human" @change="updateFilter('species', 'human')" > 
-                            </label>
-                            <label for="Robot" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Robot</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="Robot" value="human" @change="updateFilter('species', 'robot')" > 
-                            </label>
-                            <label for="Disease" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Disease</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="Disease" value="disease" @change="updateFilter('species', 'disease')" > 
-                            </label>
-                            <label for="Poopybutthole" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Poopybutthole</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="Poopybutthole" value="poopybutthole" @change="updateFilter('species', 'poopybutthole')" > 
-                            </label>
-                            <label for="Cronenberg" class="bg-none border-black border-2 rounded w-full text-white text-sm flex items-start px-4 py-4 my-2 flex items-center justify-between" >
-                                    <div class="">
-                                        <h3>Cronenberg</h3>
-                                    </div>
-                                    <input type="radio" name="Species" id="Cronenberg" value="cronenberg" @change="updateFilter('species', 'cronenberg')" > 
-                            </label>
-                            
+                    <label for="human" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'human') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'human')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'person']" /> Human</h3>
+                            </div>
+                            <label for="human" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'human') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label> 
+                    <label for="robot" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'robot') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'robot')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'robot']" /> Robot</h3>
+                            </div>
+                            <label for="robot" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'robot') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label> 
+                    <label for="disease" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'disease') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'disease')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'disease']" /> Disease</h3>
+                            </div>
+                            <label for="disease" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'disease') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label> 
+                    <label for="Poopybutthole" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'poopybutthole') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'poopybutthole')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'poo']" /> Poopybutthole</h3>
+                            </div>
+                            <label for="Poopybutthole" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'poopybutthole') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label> 
+                    <label for="Cronenberg" :class="[
+                            'border-2',
+                                    'rounded',
+                                    'w-full',
+                                    'text-white',
+                                    'text-sm',
+                                    'flex',
+                                    'items-start',
+                                    'px-4',
+                                    'py-4',
+                                    'my-2',
+                                    'flex',
+                                    'items-center',
+                                    'justify-between',
+                                    'radio-container',
+                                    isActive('species', 'cronenberg') ? 'bg-cyan-500/10 border-cyan-500' : 'border-slate-900 border-black'
+                                ]"
+                                @click="updateFilter('species', 'cronenberg')"
+                                > 
+                            <div class="">
+                                <h3> <font-awesome-icon :icon="['fas', 'bug']" /> Cronenberg</h3>
+                            </div>
+                            <label for="Cronenberg" :class="[
+                                'rounded-full',
+                                'border-4',
+                                'w-4',
+                                'h-4',
+                                isActive('species', 'cronenberg') ? 'bg-white border-cyan-500 ' : 'bg-slate-900 border-slate-900'
+                            ]" >
+
+                        </label>
+                    </label>   
                 </div>
             </div>
             
@@ -156,24 +608,29 @@
 </template>
 
 <script>
+
+
 export default {
   name: "modal",
   data() {
     return {
-      isSelected: false,
+      selected: {
+        gender: '',
+        status: '',
+        species: '',
+      },
     };
   },
   methods: {
-    toggleSelected() {
-      this.isSelected = !this.isSelected;
-    },  
     updateFilter(type, value) {
+      this.selected[type] = value;
       this.$emit("update-filter", { type, value });
+    },
+    isActive(type, value) {
+      return this.selected[type] === value;
     },
   },
 };
-
-
 
 </script>
 
