@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center w-10/12">
-    <ul class=" w-full grid grid-cols-4 gap-4" >
+    <ul class=" w-full grid grid-cols-4 gap-4 max-lg:grid-cols-1 " >
       <li class=" bg-slate-800 rounded-lg  flex flex-col items-center  w-full " v-for="character in characters.data" :key="character.id">
         <img class="rounded-full w-40 my-4 " :src="character.image" alt="">
         <h3 class=" text-white text-base font-bold pb-2.5 ">{{ character.name }}</h3>
