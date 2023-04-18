@@ -7,6 +7,11 @@ Petit projet utilisant Vue3, Vite et Tailwind ainsi qu'une API GraphQL avec Apol
 - Respect de la maquette Figma
 - Utilisation des dépendances 
 
+## Installation via npm
+```
+npm install --global yarn
+```
+
 ## Configuration du projet
 ```
 yarn
